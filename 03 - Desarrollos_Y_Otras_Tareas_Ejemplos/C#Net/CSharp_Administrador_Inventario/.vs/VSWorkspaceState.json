@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\DataAccess",
+    "\\Domain",
+    "\\obj",
+    "\\obj\\x86",
+    "\\obj\\x86\\Debug",
+    "\\obj\\x86\\Debug\\TempPE",
+    "\\obj\\x86\\Release",
+    "\\obj\\x86\\Release\\TempPE",
+    "\\Presentation"
+  ],
+  "SelectedNode": "\\Presentation\\ReceivableForm.cs",
+  "PreviewInSolutionExplorer": false
+}

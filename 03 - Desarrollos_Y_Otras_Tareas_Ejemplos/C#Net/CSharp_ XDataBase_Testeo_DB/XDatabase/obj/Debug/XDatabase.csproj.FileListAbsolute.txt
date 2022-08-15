@@ -1,0 +1,14 @@
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\bin\Debug\XDatabase.dll.config
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\bin\Debug\XDatabase.dll
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\bin\Debug\XDatabase.pdb
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\bin\Debug\MySql.Data.dll
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\bin\Debug\System.Data.SQLite.dll
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\bin\Debug\MySql.Data.xml
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\bin\Debug\System.Data.SQLite.xml
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\obj\Debug\XDatabase.csproj.AssemblyReference.cache
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\obj\Debug\XDatabase.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\obj\Debug\XDatabase.csproj.CopyComplete
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\obj\Debug\XDatabase.dll
+C:\Users\Usuario\Source\Repos\Challenges_De_Toda_Mi_Carrera\C#Net\CSharp_ XDataBase_Testeo_DB\XDatabase\obj\Debug\XDatabase.pdb

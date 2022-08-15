@@ -1,0 +1,94 @@
+PS HKCU:\> ls
+Hive: HKEY_CURRENT_USER
+SKC  VC Name						   Property
+---  -- ----					  	 --------
+2   0 AppEvents						  {}
+0  36 Console					    {ColorTable00, ColorTable01, ColorTab...
+13   0 Control Panel					  {}
+0   2 Environment				    {TEMP, TMP}
+4   0 EUDC			   			{}
+1   6 Identities					 {Identity Ordinal, Migrated7, Last Us...
+3   0 Keyboard Layout				    {}
+2   0 Layout						 {}
+0   0 Network						    {}
+3   0 Printers					   	{}
+37   0 Software						   {}
+ 1   0 System							 {}
+1   8 Volatile Environment		   {LOGONSERVER, USERDOMAIN, USERNAME, U...
+
+dir –r | select string "quebuscar"
+
+-- ps | sort –p ws | select –last 5
+
+-- Restart-Service DHCP
+
+-- Get-ChildItem – Force
+
+-- Get-ChildItem –Force c:\directory –Recurse
+
+Remove-Item C:\tobedeleted –Recurse
+(Get-WmiObject -Class Win32_OperatingSystem -ComputerName .).Win32Shutdown(2)
+
+Get-WmiObject -Class Win32_ComputerSystem
+
+Get-WmiObject -Class Win32_BIOS –ComputerName
+
+Get-WmiObject -Class Win32_QuickFixEngineering -ComputerName .
+
+Get-WmiObject -Class Win32_ComputerSystem -Property UserName –ComputerName
+
+Get-WmiObject -Class Win32_Product -ComputerName . | Format-Wide -Column 1
+
+Get-WmiObject -Class Win32_NetworkAdapterConfiguration -Filter IPEnabled=TRUE -ComputerName . | Format-Table -Property IPAddress
+
+Get-WmiObject -Class Win32_NetworkAdapterConfiguration -Filter IPEnabled=TRUE -ComputerName . | Select-Object -Property [a-z]* -ExcludeProperty IPX*,WINS*
+
+Get-WmiObject -Class Win32_NetworkAdapterConfiguration -Filter "DHCPEnabled=true" –ComputerName
+
+Get-WmiObject -Class Win32_NetworkAdapterConfiguration -Filter IPEnabled=true -ComputerName . | ForEach-Object -Process {$_.EnableDHCP()}
+
+(Get-WMIObject -ComputerName TARGETMACHINE -List | Where-Object -FilterScript {$_.Name -eq "Win32_Product"}).Install(\\MACHINEWHEREMSIRESIDES\path\package.msi)
+
+(Get-WmiObject -Class Win32_Product -ComputerName . -Filter "Name='name_of_app_to_be_upgraded'").Upgrade(\\MACHINEWHEREMSIRESIDES\path\upgrade_package.msi)
+
+(Get-WmiObject -Class Win32_Product -Filter "Name='product_to_remove'" -ComputerName . ).Uninstall()
+
+Start-Sleep 60; Restart-Computer –Force –ComputerName TARGETMACHINE
+
+(New-Object -ComObject WScript.Network).AddWindowsPrinterConnection("\\printerserver\hplaser3")
+
+Remove a printer -- (New-Object -ComObject WScript.Network).RemovePrinterConnection("\\printerserver\hplaser3 ")
+
+enter-pssession TARGETMACHINE
+
+invoke-command -computername machine1, machine2 -filepath c:\Script\script.ps1
+
+Get-Command *parámetro*
+Get-Command *-service*
+
+Invoke-Expression expresion
+Invoke-Expression c:\scripts\analisis.ps1
+
+Set-ExecutionPolicy -ExecutionPolicy Restricted
+
+Get-Item P*
+
+Copy-Item "probando.jpg" -Destination "C:\Varios\probando2.jpg"
+
+Get-Content "C:\Users\Solvetic\Desktop\pruebatexto.txt" -TotalCount 25
+
+Get-LocalUser
+
+Get-LocalUser -Name nombreusuario
+
+Get-LocalUser -Name nombreusuario|fl
+
+Get-LocalGroup
+
+Get-LocalGroup -Name nombregrupo|fl
+
+Get-Disk
+
+Get-Disk -Number numerodisco|fl
+
+Get-Partition -DiskNumber numerodisco

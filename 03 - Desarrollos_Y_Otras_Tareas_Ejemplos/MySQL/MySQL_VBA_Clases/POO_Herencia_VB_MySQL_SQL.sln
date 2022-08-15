@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ADBDFCFC-E41C-4A32-99D0-B8B05A1CA8C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PruebaClases", "PruebaClases", "{C88C17B9-F0BD-454C-9059-BFF13C4C64CA}"
+	ProjectSection(SolutionItems) = preProject
+		Prueba-Clases-Programacion-Visual\App.config = Prueba-Clases-Programacion-Visual\App.config
+		Prueba-Clases-Programacion-Visual\Form1.Designer.vb = Prueba-Clases-Programacion-Visual\Form1.Designer.vb
+		Prueba-Clases-Programacion-Visual\Form1.resx = Prueba-Clases-Programacion-Visual\Form1.resx
+		Prueba-Clases-Programacion-Visual\Form1.vb = Prueba-Clases-Programacion-Visual\Form1.vb
+		Prueba-Clases-Programacion-Visual\Form2.Designer.vb = Prueba-Clases-Programacion-Visual\Form2.Designer.vb
+		Prueba-Clases-Programacion-Visual\Form2.vb = Prueba-Clases-Programacion-Visual\Form2.vb
+		PruebaClases\Inicio.vb = PruebaClases\Inicio.vb
+		PruebaClases\Program.vb = PruebaClases\Program.vb
+	EndProjectSection
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "PruebaClases", "PruebaClases.vbproj", "{990E2F02-3386-4C15-BB8F-BFB88934B509}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{990E2F02-3386-4C15-BB8F-BFB88934B509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{990E2F02-3386-4C15-BB8F-BFB88934B509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{990E2F02-3386-4C15-BB8F-BFB88934B509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{990E2F02-3386-4C15-BB8F-BFB88934B509}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C88C17B9-F0BD-454C-9059-BFF13C4C64CA} = {ADBDFCFC-E41C-4A32-99D0-B8B05A1CA8C3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EB13FDA-CE20-46F8-B03E-2E903D801EEE}
+	EndGlobalSection
+EndGlobal

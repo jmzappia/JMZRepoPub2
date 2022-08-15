@@ -1,0 +1,5 @@
+Powershell
+Get-PSDrive
+cd d:
+.\setup.exe
+Restart-Computer

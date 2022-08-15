@@ -1,0 +1,590 @@
+<#
+Ejemplos de PowerShell
+autor: yo
+fecha: 6-abril-2013
+#>
+
+# 37 emular el comando top de Linux
+while ( 1 ) {ps | sort - desc cpu | seleccionar - primeros 30 ; dormir - segundos 2 ; cls}
+
+
+# 36 uso de para
+claro
+$ ints  =  @ ( ' fer ' , ' camila ' , ' dan ' )
+para ( $ i = 0 ; $ i  -le  $ ints .Longth - 1 ; $ i ++ )
+{ Write-Host  $ ints [ $ i ]}
+
+
+
+# 35 paso de parametros
+$ args
+" no. de parametros: $ ( $ args .count ) "
+
+# 34 horoscopo chino
+claro
+$ datos  =  @ { 0 = " mono " ; 1 = " gallo " ; 2 = " perro " ; 3 = " cerdo " ; 4 = " rata " ; 5 = " buey " ; 6 = " tigre " ; 7 = " conejo " ; 8 = " dragón "9 = " serpiente " ; 10 = " caballo " ; 11 = " cabra " }
+$ datos  |  Ordenar-Objeto
+$ anyo = Read-Host  " Introducir año: "
+$ resto = $ anyo % 12
+Write-Host  " Te corresponda el signo de: " $ datos .get_Item ( $ resto )
+
+
+
+# 33 cuenta vocales
+Anfitrión claro
+$ cadena = Read-Host  " Introduce cadena "
+Write-Host  " introduciste "  $ cadena
+$ cont = 0
+$ aux = " "
+for ( $ i = 0 ; $ i  -le  $ cadena .Length ; $ i ++ ) {
+ $ c = $ cadena [ $ i ]
+  if ( $ c  -eq  " a "  -o  $ c  -eq  " e "  -o  $ c  -eq  " i "  -o  $ c  -eq  " o "  -o  $ c  -eq  " u " ) {
+   $ cont ++
+   $ aux + = " , " + $ c
+ }
+}
+Write-Host  " no. De vocales: " $ cont "   , vocales obtenidas: " $ aux
+
+
+# 32 uso de expresiones regulares
+Anfitrión claro
+" Fernando "  -partido  " F.er "
+" Ariel "  -match  " .riel "
+" En un campo alegre "  -match  " E? A "
+" mi gata "  -match  " mg "
+" mia "  -match  " m + a "
+" mia "  -match  " m? a "
+" mia "  -match  " m \ .a "
+" Fer "  -match  " \ w * "
+" Fer "  -match  " \ w "
+$ correo = " gatibal.gato@latinmail.com "
+$ correo .Replace ( " latinmail " , " gmail " )
+" gatibal.gato@gmail.com ". Reemplazar ( " @ gmail.com " , " @ yahoo.com.mx " )
+$ cadena = " Mi gato come mucho "
+Write-Host  " tamaño: "  $ cadena .Length
+Write-Host  " ahora: "  $ cadena .Remove ( 3 )
+
+
+# 31 enviar correo
+$ nombre de archivo  =  " c: \ scripts_scott \ test9999.xls "
+$ smtpserver  =  " smtp.gmail.com "
+$ msg  =  nuevo objeto Net.Mail.MailMessage
+$ att  =  objeto nuevo Net.Mail.Attachment ( $ nombre de archivo )
+$ smtp  =  objeto nuevo Net.Mail.SmtpClient ( $ smtpServer )
+$ smtp .EnableSsl  =  $ True
+$ smtp .Credentials  =  New-Object System.Net.NetworkCredential ( " nombre de usuario " ,  " contraseña_aquí " ); # Ponga el nombre de usuario sin @ GMAIL.com o - @ gmail.com
+$ msg .From  =  " username@gmail.com "
+$ msg .To.Add ( ” jefe@job.com ” )
+$ msg .Subject  =  " Informe mensual "
+$ msg .Body  =  " Buenos días. Se adjuntan los INICIOS DE SESIÓN Y LAS LLAMADAS DE GRUPO PARA TODOS LOS GIDS EN EL SISTEMA "
+$ msg .Attachments.Add ( $ att )
+$ smtp .Enviar ( $ msg )
+
+# 30 calcular valor futuro
+anfitrión claro
+" ---------------------------------- "
+"              Menú                  "
+" ---------------------------------- "
+$ valor = read-host  " Valor: "
+$ tasa = read-host  " Tasa: "
+$ periodo = read-host  " Periodo: "
+$ resultado = 0
+# mostrar valores
+host de escritura  " valor: $ valor "
+escribir-host  " tasa: $ tasa "
+host de escritura  " periodo: $ periodo "
+" "
+" "
+" [Resultado] "
+foreach ( $ n  en  1 .. $ periodo ) {
+$ resultado = [ matemáticas ] :: pow ( 1 + $ tasa / 100 , $ n )
+$ resultado = $ resultado * $ valor
+write-host  " $ resultado   periodo -> $ n "
+
+}
+
+
+# 29 introducir datos
+$ nombre  =  Read-Host  " Tu nombre: "
+$ contraseña  =  Read-Host  - assecurestring " Tu clave: "
+# mostrar
+write-host  " Hola $ nombre "
+Anfitrión claro
+$ YearCalc  =  Read-Host  " ¿cuando naciste? "
+$ Now  = ( Get-Date  - uformat " % Y " ) - $ YearCalc
+$ Quizás  =  $ Ahora  -1
+Escribe-Anfitrión  " tu tienes   $ Quizás o $ Ahora años "
+
+# 28 ejemplo de función con parámetros
+$ g = 9,81
+
+Función  altura {
+ parámetro ( $ t )
+ si ( $ t  -eq  0 ) {
+   volver  0
+} más {
+   return ( $ g * [ System.Math ] :: Pow ( $ t , 2 )) / 2
+ }
+}
+$ resultado = altura ( 6.309 )
+
+host de escritura  " $ resultado "
+
+
+# 27 bucle para cada uno
+$ lista = 200 , 250 , 300 , 350 , 400
+escribir-host  " lista [ $ lista ] "
+foreach ( $ l  en  $ lista ) {
+     si ( $ l  -eq  250 ) {
+       " $ l , valor encontrado "
+     } más {
+        $ resultado = $ l * 2 ;
+       host de escritura  " $ l    $ l * 2: $ resultado "
+     }
+}
+
+
+# 26 menú básico
+anfitrión claro
+host de escritura  " ############################ "
+host de escritura  " "
+escribir-host  "             Menú              "
+host de escritura  " "
+write-host  " 1. Ver versión "
+write-host  " 2. Ver fecha "
+write-host  " 3. Ver ayuda "
+write-host  " 4. Abrir bloc de notas "
+write-host  " 5. Abrir calculadora "
+escribir-host  " 6. Salir "
+host de escritura  " ############################ "
+$ opc  =  Read-Host  " Tu opción: "
+host de escritura  " "
+write-host  " introduciste [ $ opc ] "
+# if (opc! = 0 || opc> = 6)
+if ( $ opc  -ne  0   -o  $ opc  -ge  6 ) {
+
+cambiar ( $ opc ) {
+  1 { write-host  " version "  - ForegroundColor Cyan
+     obtener-anfitrión
+  }
+  2 { write-host  " fecha "  - ForegroundColor Cyan
+     obtener la fecha
+     
+  }
+  3 { write-host  " ayuda "  - ForegroundColor Cyan
+     consigue ayuda
+  }
+  4 { write-host  " bloc de notas "  - ForegroundColor Cyan
+      abreBloc
+  }
+  5 { write-host  " calculadora "  - ForegroundColor Cyan
+      abreCalc
+  }
+  6 { write-host  " fin "  - ForegroundColor Red
+      Salida
+  }
+
+} # interruptor de aleta
+
+}
+
+# Script de Microsoft PowerShell para crear una función simple
+# Autor: Guy Thomas
+# Versión 2.1 Mayo de 2008 probada en PowerShell v 1.0
+
+# función BatAvg
+
+# {param ($ nombre, $ carreras, $ salidas)
+
+# $ Avg = [int] ($ Runs / $ Outs * 100) / 100
+
+# Write-Output "Promedio de $ Name = $ Avg, $ Runs, $ Outs"
+# }
+
+
+Función  abreBloc {
+  iniciar el bloc de notas
+}
+
+Función  abreCalc {
+  iniciar calc
+}
+
+
+# 25
+claro
+" ##########################################
+# Potencia Shell #
+########################################### "
+obtener-anfitrión
+$ cadena = " pelo "
+$ archivo = " C: \ Users \ fernando \ Documents \ Ejemplos \ servicio.txt "
+$ fecha = ( obtener-fecha )
+$ fecha
+$ nombre  =  Read-Host  " Tu nombre es: "
+$ contraseña  =  Read-Host  - assecurestring " Tu contraseña: "
+write-host  " Bienvenido $ nombre "
+" Te encuentras en: "
+gl
+" usuario: "
+quién soy
+$ cad = $ cadena - reemplazar ( " l " , " rr " )
+$ cad
+" contenido del archivo: "
+get-content  $ archivo
+$ compara = whoami
+if ( $ nombre  -eq  $ compara ) { " iguales " } else { " no iguales " }
+
+
+
+function  abre {
+  param ( $ nombre )
+   if ( $ nombre  -eq  " fernando " ) { " start notepad " } else { " start calc, nada igual " }
+}
+
+
+# invocar a la función
+abre ( $ nombre )
+
+$ numero =  read-host  " número: "
+cambiar ( $ numero ) {
+   1 { " abre " }
+   2 { " cierra " }
+   3 { " apaga " }
+   predeterminado { " inactivo " }
+}
+
+prueba {
+ " abriendo archivo, se ejecuto esto "
+  abre ( $ nombre )
+} atrapar {
+ " no se encuentra el archivo "
+}
+
+$ cont = 0
+$ máximo = 10
+while ( $ cont  -le  $ maximo ) {
+ host de escritura  " $ cont "
+ $ cont + = 1
+}
+
+$ b = 90
+$ a = 700
+
+
+$ persistente  =  " Falso "
+[ System.Convert ] :: ToBoolean ( $ persistente )
+
+
+función  comparar ( $ b ) {
+ if ( $ b  -eq  $ a ) {
+   " real "
+} más {
+  " no existe "
+ }
+
+}
+
+comparar ( $ b )
+$ persistente .gettype ()
+
+# Obtener-Proceso | Para cada objeto {Write-Host $ _. Name -foregroundcolor cyan}
+# write-host "Algo"
+# ##########################################
+# $ a = (get-date) .day
+# $ a = (get-date) .dayofweek
+# $ a = (get-date) .dayofyear
+# $ a = (obtener-fecha) .hora
+# $ a = (obtener-fecha) .milisegundo
+# $ a = (obtener-fecha) .minuto
+# $ a = (get-date) .month
+# $ a = (get-date) .second
+# $ a = (get-date) .timeofday
+# $ a = (get-date) .year
+# get-date -DisplayHint date
+# $ now = Get-Date -format "dd-MMM-aaaa HH: mm"
+# get-date -format g
+# (get-date) .dayofyear
+# $ a = get-wmiobject win32_bios -computer SERVER64
+# $ a | format-list -property Name, @ {Label = "Fecha de BIOS"; '
+# Expresión = {$ _. ConvertToDateTime ($ _. ReleaseDate)}}
+# ############################################### #####
+# dir <enter>
+# ls <enter>
+# gci <enter>
+Get-ChildItem  < entrar >
+# asignar un alias
+Set-Alias gs Get-Service  < entrar >
+# exportar contenido a un txt
+Export-Alias  - Path Aliases.txt < ingresar >
+
+
+
+# 24
+claro
+Obtener contenido C: \ servicio.txt
+
+$ a  =  Get-Content C: \ Users \ fernando \ Documents \ Ejemplos \ servicio.txt
+host de escritura  " $ a "
+
+( Get-Content C: \ Users \ fernando \ Documents \ Ejemplos \ servicio.txt) [ 0 . .  2 ]
+
+$ arch = get-content C: \ Users \ fernando \ Documents \ Ejemplos \ servicio.txt
+ForEach-Object { Write-Host  $ arch  - foregroundcolor red}
+
+foreach ( $ número  en  1 .. 10 ) { $ número  *  4 }
+
+
+# Bucle foreach de PowerShell para mostrar archivos en C: \ Archivos de programa
+$ Path  =  " C: \ Archivos de programa \ "
+" {0,10} {1, -24} {2, -2} "  -f  `
+" Tamaño " ,  " Último acceso " ,  " Nombre de archivo "
+Foreach ( $ archivo  en  Get-Childitem  $ Path  - recurse - force)
+{ If ( $ file .extension  -eq  " .txt " )
+    {
+    " {0,10} {1, -24} {2, -2} "  -f  `
+    $ file .length ,  $ file .LastAccessTime ,  $ file .fullname
+    }
+}
+
+
+# ##########################################
+
+# Canalización de bucle foreach de PowerShell en declaración de bloque
+Anfitrión claro
+$ Path  =  " C: \ Archivos de programa \ "
+Get-Childitem  $ Path  - recurse - force |  Foreach {
+Si ( $ _ .extension  -eq  " .txt " ) {
+Escribir-Host  $ _ .fullname 
+     }
+}
+
+
+
+$ strResponse  =  " Salir "
+do { $ strResponse  =  Read-Host  “ ¿Está seguro de que desea salir de la aplicación? (S / N) ” }
+hasta ( $ strResponse  -eq  " Y " )
+
+New-Item  - Archivo ItemType freespace.txt
+
+$ fecha  = ( obtener-fecha ) .ToString ( ' aaaaMMdd ' )                                                                                             
+$ file  =  New-Item  - escriba el archivo " $ date -freespace.txt "                                                                                     
+$ fecha  = ( obtener-fecha ) .ToString ( ' aaaaMMdd ' )   
+
+ForEach ( $ system  en  Get-Content  " servicio.txt " )
+{ Write-Host  $ system }                                                                                      
+                                                                                            
+
+
+# 23 función sencilla
+function  mensaje {
+   " hola "
+}
+mensaje
+
+# 22
+$ num1 = 9
+$ num2 = 4
+" Valores booleanos "
+$ res = $ num1  -gt  $ num2 
+Host de escritura  " $ num1 -gt $ num2   " $ res
+$ res = $ num1  -lt  $ num2 
+Escribir-Host  " $ num1 -lt $ num2   " $ res
+$ res = $ num1  -eq  $ num2 
+Host de escritura  " $ num1 -eq $ num2   " $ res
+$ res = $ num1  -ne  $ num2 
+Write-Host  " $ num1 -ne $ num2   " $ res
+$ res = $ num1  -le  $ num2 
+Escribir-Host  " $ num1 -le $ num2   " $ res
+$ res = $ num1  -ge  $ num2 
+Host de escritura  " $ num1 -ge $ num2   " $ res
+
+# 21 estructuras de control
+Write-Host  " uso de do {} while (cond) "
+$ i  =  1
+hacer {
+Escribir-Host  $ i
+$ i ++
+}
+mientras ( $ i  -le  5 )
+
+Write-Host  " uso de while (cond) {} "
+$ i  =  1
+while ( $ i  -le  5 ) {
+Escribir-Host  $ i
+$ i ++
+}
+
+Escribe-Anfitrión  " uso de do {} hasta (cond) "
+$ i  =  1
+hacer { Write-Host  $ i ; $ i ++ }
+hasta ( $ i  -gt  5 )
+
+$ strResponse  =  " Salir "
+do { $ strResponse  =  Read-Host  “ ¿Está seguro de que desea salir de la aplicación? (S / N) ” }
+hasta ( $ strResponse  -eq  " Y " )
+
+
+Write-Host  " uso de para "
+para ( $ i = 1 ; $ i  -le  5 ; $ i ++ )
+{ Write-Host  $ i }
+
+
+$ pulgadas  =  @ ( 1 ,  2 ,  3 ,  4 ,  5 )
+para ( $ i = 0 ; $ i  -le  $ ints .Longth - 1 ; $ i ++ )
+{ Write-Host  $ ints [ $ i ]}
+
+
+Write-Host  " uso de foreach "
+$ pulgadas  =  @ ( 1 ,  2 ,  3 ,  4 ,  5 )
+foreach ( $ i  en  $ ints )
+{ Write-Host  $ i }
+
+
+# 20
+$ ubicacion = gl
+Escribe-Anfitrión  " te encuentras en: "  $ ubicacion
+Get-Help  - Nombre Get-Process
+
+# 19
+$ cadena = " Fernando Carraro "
+Write-Host  " Hola " $ cadena
+$ cadena  -match  " aro "
+$ cadena  -match  " er "
+$ cadena  -match  " nando "
+
+
+# 18 ver fecha
+$ fecha = Get-Date
+write-host  " hoy es " $ fecha
+
+# 17 ver ubicación
+$ variable = gl
+" estas en: "
+$ variable
+
+
+# 16 Pedir nombre y mostrarlo
+$ nombre = Read-Host  " tu nombre "
+" Hola "
+$ nombre
+Write-Host  " hola " $ nombre
+
+
+# 15
+host de escritura
+write-host  " ShowPrnH.ps1, versión 1.01 "
+write-host  " Mostrar impresoras disponibles en HTML "
+write-host  " Escrito por Rob van der Woude "
+host de escritura  " http://www.robvanderwoude.com "
+host de escritura
+
+get-wmiobject  - clase Win32_Printer |  convertto-html Name , Default , Network , PortName , DriverName , ServerName , ShareName - head " <title> Todas las impresoras disponibles en $ env: computername </title> ` n <style type = `" text / css `" > `n body {padding: 8px; line-height: 1.33} `n table {border-style: ridge} ` n td, th {padding: 10px; border-style: dotted; border-width: 1px} `nth {font-weight: negrita; text-align: center} `n </style> "  |  out-file  - FilePath " showprnh.html "  - Codificación " ASCII "
+ invoke -item " showprnh.html "
+
+
+# 14 una función
+
+function  ver {
+   " estas en: "
+  gl
+}
+
+ver
+
+
+# 13 operaciones básicas
+
+$ num1 = 99
+$ num2 = 32,33
+
+" datos: "
+$ num1
+$ num2
+
+$ suma = $ num1  +  $ num2
+$ resta = $ num1  -  $ num2
+$ producto = $ num1  *  $ num2
+$ división = $ num1  /  $ num2
+
+
+escribir-host  " suma: $ suma "
+host de escritura  " resta: $ resta "
+write-host  " producto: $ producto "
+write-host  " division: $ division "
+
+
+# 12.
+escribir-host  " Datos del sistema: "
+New-Object System.io.DriveInfo " C: "  |  Lista de formatos  *
+$ unidad  =  New-Object System.io.DriveInfo " C: "
+$ unidad .DriveFormat
+$ unidad .VolumeLabel
+
+
+# 11. ¿Cómo mostrar el nombre de los archivos y el tamaño cuyo tamaño sea 79 bytes en powershell?
+
+gci | seleccione nombre , longitud |  donde { $ _ .length  -eq  76 }
+
+
+# 10. Cómo mostrar el nombre de los archivos y el tamaño ordenados por tamaño
+gci | seleccione nombre , longitud | longitud de clasificación –desc
+
+
+# 9. obtener una lista de archivos y guardarla en un archivo de texto * .txt
+
+GCI > listaArchivos.txt
+
+
+# 8. Crear una función
+function  mensaje {
+ " hola desde una función "
+} 
+mensaje
+
+# 7. Operadores aritméticos y booleanos
+$ a = 99
+$ b = 2
+Write-Host  " a = $ a   yb = $ b "
+$ resultado = ( $ a  -lt  $ b )
+write-host  " ( $ a -lt $ b ): $ resultado "
+$ resultado = ( $ a  -gt  $ b ) -o ( $ b  -lt  $ a )
+escribir-host  " ( $ a -gt $ b ) -o ( $ b -lt $ a ): $ resultado "
+$ resultado = ( $ a  -eq  $ a ) -y ( $ b  -lt  $ a )
+write-host  " ( $ a -eq $ b ) -and ( $ b -lt $ a ): $ resultado "
+
+
+
+
+# 6.Operaciones básicas: suma, resta, producto y división
+$ a = 34
+$ b = 25
+$ suma =  $ a + $ b
+$ resta =  $ a - $ b
+$ producto =  $ a * $ b
+$ división =  $ a / $ b
+escribe " $ a + $ b = $ suma "
+escribe " $ a - $ b = $ resta "
+escribe " $ a * $ b = $ producto "
+escribe " $ a / $ b = $ division "
+
+
+# 5. Introducir datos
+$ nombre = Read-Host  " tu nombre es: "
+Write-Host  " bienvenido $ nombre "
+
+# 4. definir una variable
+$ miVariable = " soy una variable "
+Escribir-Host  $ miVariable
+echo $ miVariable
+$ miVariable
+
+
+# 3. hola mundo con echo
+echo " hola mundo desde PowerShell "
+
+# 2. hola mundo con write-host
+Write-Host  " hola mundo desde PowerShell "
+
+# 1. hola mundo con comillas
+" Hola mundo desde PowerShell "
